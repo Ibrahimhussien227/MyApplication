@@ -31,11 +31,13 @@ class RegistrationActivity : AppCompatActivity() {
                         if (!it.isSuccessful) return@addOnCompleteListener
 
                         Log.d("Main","Successfully created user and his uid: ${it.result?.user?.uid}")
+                        Toast.makeText(this, "Successfully creating account", Toast.LENGTH_SHORT).show()
                         val intent = Intent(this,ProfileActivity::class.java)
                         startActivity(intent)
                     }
                     .addOnFailureListener {
                         Log.d("Main","Faild to create user: ${it.message}")
+                        Toast.makeText(this, "Faild to create account", Toast.LENGTH_SHORT).show()
                     }
 
         }
