@@ -32,7 +32,11 @@ class LoginActivity : AppCompatActivity() {
 
                     val intent = Intent(this,ProfileActivity::class.java)
                     startActivity(intent)
-
+                    Toast.makeText(this, "Welcome", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Log.d("Main","Faild to sign in: ${it.message}")
+                    Toast.makeText(this, "Faild to sign in: ${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
         tv_signUp.setOnClickListener {
